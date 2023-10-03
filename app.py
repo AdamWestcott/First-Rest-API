@@ -1,5 +1,7 @@
 from flask import Flask
 from flask_smorest import Api
+from flask_jwt_extended import jwt_manager
+import secrets
 
 from db import db
 
@@ -25,6 +27,9 @@ def create_app(db_url=None):
     #connects Flask App to sqlAlchemy
     db.init_app(app)
     api = Api(app)
+
+    app.config["JWT_SECRET_KEY"] = "227779219714998987437280705912860315914"
+    jwt = jwt_manager(app)
     
     with app.app_context():
         db.create_all()
