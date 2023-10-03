@@ -22,9 +22,10 @@ def create_app(db_url=None):
     app.config["SQLALCHEMY_DATABASE_URI"] = db_url or "sqlite:///data.db"
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     app.config["PROPAGATE_EXCEPTIONS"] = True
+    #connects Flask App to sqlAlchemy
     db.init_app(app)
     api = Api(app)
-
+    
     with app.app_context():
         db.create_all()
 
