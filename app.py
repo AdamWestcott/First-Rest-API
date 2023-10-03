@@ -9,6 +9,8 @@ import models
 
 from resources.item import blp as ItemBlueprint
 from resources.store import blp as StoreBlueprint
+#Used to get User Blue Print
+from resources.user import blp as UserBlueprint
 
 
 def create_app(db_url=None):
@@ -36,6 +38,8 @@ def create_app(db_url=None):
 
     api.register_blueprint(ItemBlueprint)
     api.register_blueprint(StoreBlueprint)
+    #Registers User BluePrint In Flask Smorest - Shows API Documentation
+    api.register_blueprint(UserBlueprint)
 
     return app
 
