@@ -43,3 +43,10 @@ class TagAndItemSchema(Schema):
     message = fields.Str()
     item = fields.Nested(ItemSchema)
     tag = fields.Nested(TagSchema)
+
+#User Schema
+class UserSchema(Schema):
+    id = fields.Int(dump_only=True)
+    username = fields.Str(required=True)
+    #load_only so that the Password will never be returned to user, only sent to api
+    password = fields.Str(required=True, load_only=True)
