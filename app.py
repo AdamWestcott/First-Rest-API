@@ -79,7 +79,7 @@ def get_store(store_id):
 
 #Deletes A Store
 @app.delete("/store/<string:store_id>") #http://127.0.0.1:5000/store/<string:name>/items - this tells the code to run the get_item function when you access this url
-def del_item(store_id):
+def del_store(store_id):
     try:
         del[stores[store_id]]
         return {"message": "Store has been deleted"}
@@ -88,7 +88,7 @@ def del_item(store_id):
 
 #Updates a Store
 @app.put("/store/<string:store_id>") #http://127.0.0.1:5000/store/<string:name>/items - this tells the code to run the get_item function when you access this url
-def update_item(store_id):
+def update_store(store_id):
     store_data = request.get_json()
     if "price" not in store_data or "name" not in store_data:
         abort(404, message = "Bad Request. Ensure 'price' and 'name' are included in JSON payload")
